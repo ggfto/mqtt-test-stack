@@ -6,4 +6,3 @@ mqtt:
   server: tcp://localhost
   port: 1883
   clientid: spring-server
-    

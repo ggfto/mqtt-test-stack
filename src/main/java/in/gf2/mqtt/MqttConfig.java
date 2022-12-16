@@ -15,17 +15,15 @@ import lombok.RequiredArgsConstructor;
 public class MqttConfig {
 	
 	Logger log = LoggerFactory.getLogger(getClass());
-	
+		
 	private	final AppConfig appConfig;
-	
-	private static final String MQTT_PUBLISHER_ID = "spring-server";
     private static IMqttClient instance;
 
     public IMqttClient getInstance() {
         try {
             if (instance == null) {
-            	log.trace(appConfig.getMqttServer() + ":" + appConfig.getMqttPort());
-                instance = new MqttClient(appConfig.getMqttServer() + ":1883", MQTT_PUBLISHER_ID);
+            	log.trace(appConfig.toString());
+                instance = new MqttClient(appConfig.getEndpoint(), appConfig.getMqttClientid());
             }
 
             MqttConnectOptions options = new MqttConnectOptions();

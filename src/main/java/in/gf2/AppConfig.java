@@ -19,5 +19,9 @@ public class AppConfig {
 	
 	@Value("${mqtt.clientid:spring-server}")
 	private String mqttClientid;
+	
+	public String getEndpoint() {
+		return this.mqttServer + ":" + this.mqttPort;
+	}
 }
 
