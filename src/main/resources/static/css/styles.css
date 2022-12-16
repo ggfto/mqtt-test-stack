@@ -1,0 +1,17 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+.margin-top-32 {
+    margin-top: 32px;
+}
+
+.hidden {
+    display: none;
+}
+
+.field-label {
+    flex-basis: unset;
+}
+
+a {
+    text-decoration: none;
+}

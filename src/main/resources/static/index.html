@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MQTT WebClient</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./assets/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                MQTT WebClient
+            </p>
+            <p class="subtitle" data-key="subtitle">
+                MQTT Testing
+            </p>
+        </div>
+    </section>
+
+    <div class="tabs">
+        <ul>
+            <li class="is-active" data-key="publisher"><a data-key="publisherLabel">Publisher</a></li>
+            <li data-key="subscriber"><a data-key="subscriberLabel">Subscriber</a></li>
+        </ul>
+    </div>
+
+    <div class="container is-fluid" id="publisher">
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <label class="label has-text-left" data-key="topic">MQTT Topic</label>
+            </div>
+            <div class="field-body">
+                <div class="control is-expanded">
+                    <input class="input" type="text" placeholder="MQTT/Topic" id="topic">
+                </div>
+            </div>
+            <div class="field-label">
+                <label class="label has-text-left" data-key="retained" id="retained">Retained</label>
+            </div>
+            <div class="field-body">
+                <div class="control">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                </div>
+            </div>
+            <div class="field-label">
+                <label class="label has-text-left" data-key="qos">QOS</label>
+            </div>
+            <div class="field-body">
+                <div class="control">
+                    <input class="input" type="number" value="0" id="qos">
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" data-key="message">Message</label>
+            <div class="control">
+                <textarea class="textarea" rows="15" placeholder="JSON" id="message"></textarea>
+            </div>
+        </div>
+
+        <label class="label" data-key="repeat">Repeat every:</label>
+        <div class="field has-addons">
+            <p class="control">
+                <input class="input" type="number" placeholder="qtd" id="interval">
+            </p>
+            <p class="control">
+                <a class="button is-static" data-key="seconds">
+                    millisecond(s).
+                </a>
+            </p>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" id="publish" data-key="publish">Publish</button>
+            </div>
+        </div>
+    </div>
+    <div class="container is-fluid hidden" id="subscriber">
+        <label class="label" data-key="topic">MQTT Topic</label>
+        <div class="field has-addons">
+            <div class="control">
+                <input class="input" type="text" placeholder="MQTT/Topic">
+            </div>
+            <div class="control">
+                <a class="button is-info" data-key="subscribe">
+                    Subscribe
+                </a>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" data-key="response">Response</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="JSON"></textarea>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"
+        integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/translation.js"></script>
+</body>
+
+</html>

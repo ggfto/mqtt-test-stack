@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import in.gf2.AppConfig;
+import in.gf2.config.AppConfig;
 import lombok.RequiredArgsConstructor;
 
 @Component @RequiredArgsConstructor

@@ -2,18 +2,14 @@ version: '3.9'
 services:
   mqtt:
     container_name: mqtt-server
-    image: eclipse-mosquitto:latest
+    image: ggfto/mosquitto:latest
     restart: always
-    volumes:
-     - /D/mqtt/config:/mosquitto/config
-     - /D/mqtt/data:/mosquitto/data
-     - /D/mqtt/log:/mosquitto/log
     ports:
      - 1883:1883
      - 9001:9001
-  # mqtt-test-stack:
+  # mqtt-client:
   #   container_name: mqtt-client
-  #   image: ggfto/mqtt-test-stack:latest
+  #   image: ggfto/mqtt-client:latest
   #   restart: always
   #   ports:
   #     - 8180:8080

@@ -1,14 +1,11 @@
-package in.gf2;
+package in.gf2.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-@Configuration
-@Getter @Setter @RequiredArgsConstructor
+@Data @Configuration
 public class AppConfig {
 	
 	@Value("${mqtt.server:tcp://localhost}")
