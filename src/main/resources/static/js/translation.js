@@ -7,6 +7,7 @@ const translations = {
         "qos": "QOS",
         "publish": "Publicar",
         "subscribe": "Inscrever",
+        "stop": "Parar",
         "publisherLabel": "Publicador",
         "subscriberLabel": "Subscritor",
         "response": "Resposta",

@@ -14,8 +14,15 @@ $(".tabs ul li").click(function () {
 
 $("#publish").click(function () {
     if (autoSend) return;
+    let repeatTime = $("#interval").val();
+    if(repeatTime != undefined) interval = parseInt(repeatTime);
     readData();
-})
+});
+
+$("#stop").click(function () {
+    autoSend = false;
+    interval = 0;
+});
 
 function readData() {
     if (interval > 0) {
@@ -30,8 +37,6 @@ function readData() {
 }
 
 function sendData() {
-    let repeatTime = $("#interval").val();
-    if(repeatTime != undefined) interval = parseInt(repeatTime);
     postData('./publish', JSON.stringify({
         topic: $("#topic").val(),
         message: JSON.stringify(JSON.parse($("#message").val())),
@@ -52,9 +57,7 @@ function postData(url, data) {
     })
         .then(function (response) {
             if(response.status == 200) {
-                if(!autoSend) {
-                    notify("success", "Sucesso!", 1000);
-                }
+                notify("success", "Sucesso!", 1000);
             } else {
                 notify("danger", "Erro ao enviar request!", 5000);
             }
@@ -75,8 +78,8 @@ function notify(type, content, duration) {
         duration: durationTime,
         newWindow: true,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
             background: color,

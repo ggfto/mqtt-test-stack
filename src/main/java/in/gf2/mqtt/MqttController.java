@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import in.gf2.mqtt.exception.ExceptionMessages;
 import in.gf2.mqtt.exception.MqttException;
 import in.gf2.mqtt.model.MqttPublishModel;
@@ -68,7 +66,7 @@ public class MqttController {
 	        config.getInstance().subscribeWithResponse(topic, (s, mqttMessage) -> {
 	            MqttSubscribeModel mqttSubscribeModel = new MqttSubscribeModel();
 	            mqttSubscribeModel.setId(mqttMessage.getId());
-	            mqttSubscribeModel.setMessage(new ObjectMapper().readTree(mqttMessage.getPayload()));
+	            mqttSubscribeModel.setMessage(new String(mqttMessage.getPayload()));
 	            mqttSubscribeModel.setQos(mqttMessage.getQos());
 	            if(!messages.contains(mqttSubscribeModel)) messages.add(mqttSubscribeModel);
 	            log.trace(mqttSubscribeModel.toString());
