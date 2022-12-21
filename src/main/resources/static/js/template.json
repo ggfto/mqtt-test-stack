@@ -1,0 +1,81 @@
+{
+    "fields": [
+        {
+            "field": "timestamp",
+            "name": "Timestamp",
+            "type": "datetime"
+        },
+        {
+            "field": "idCamera",
+            "name": "ID Camera",
+            "type": "string"
+        },
+        {
+            "field": "possiveisPlacas",
+            "name": "Possíveis Placas",
+            "type": "array",
+            "subFields": [
+                {
+                    "field": "placa",
+                    "name": "Placa",
+                    "type": "string"
+                },
+                {
+                    "field": "confiancaPlaca",
+                    "name": "Confiança da Placa",
+                    "type": "number"
+                },
+                {
+                    "field": "confiancaCaractere",
+                    "name": "Confiança do Caractere",
+                    "type": "array",
+                    "arraySize": 8
+                }
+            ]
+        },
+        {
+            "field": "imagem",
+            "name": "Imagem",
+            "type": "image",
+            "subFields": [
+                {
+                    "field": "type",
+                    "name": "Tipo",
+                    "type": "string"
+                },
+                {
+                    "field": "data",
+                    "name": "Dados",
+                    "type": "string"
+                },
+                {
+                    "field": "posicaoPlaca",
+                    "name": "Posição da Placa",
+                    "type": "array",
+                    "subFields": [
+                        {
+                            "field": "h",
+                            "name": "H",
+                            "type": "number"
+                        },
+                        {
+                            "field": "w",
+                            "name": "W",
+                            "type": "number"
+                        },
+                        {
+                            "field": "x",
+                            "name": "X",
+                            "type": "number"
+                        },
+                        {
+                            "field": "y",
+                            "name": "Y",
+                            "type": "number"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

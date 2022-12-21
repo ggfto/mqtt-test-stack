@@ -1,3 +1,22 @@
+function translatePhrase(language, key, text) {
+    return translations[language][key] || text;
+}
+
+function translate() {
+    let language = getLanguage();
+    for(let item in translations[language]) {
+        translateItem(language, item);
+    }
+}
+
+function translateItem(language, item) {
+    $("body").find(`[data-key="${item}"]`).text(translatePhrase(language, item, $("body").find(`[data-key="${item}"]`).text()));
+}
+
+function getLanguage() {
+    return window.navigator.userLanguage || window.navigator.language;
+}
+
 const translations = {
     "pt-BR" : {
         "subtitle": "Testes MQTT",
@@ -6,6 +25,7 @@ const translations = {
         "retained": "Retido",
         "qos": "QOS",
         "publish": "Publicar",
+        "publishing": "Publicando",
         "subscribe": "Inscrever",
         "stop": "Parar",
         "publisherLabel": "Publicador",
@@ -13,16 +33,5 @@ const translations = {
         "response": "Resposta",
         "repeat": "Repetir a cada",
         "seconds": "milisegundo(s)."
-    }
-}
-
-function translatePhrase(language, key, text) {
-    return translations[language][key] || text;
-}
-
-function translate() {
-    let language = window.navigator.userLanguage || window.navigator.language;
-    for(let item in translations[language]) {
-        $("body").find(`[data-key="${item}"]`).text(translatePhrase(language, item, $("body").find(`[data-key="${item}"]`).text()));
     }
 }

@@ -31,62 +31,90 @@
     </div>
 
     <div class="container is-fluid" id="publisher">
-        <div class="field is-horizontal">
-            <div class="field-label">
-                <label class="label has-text-left" data-key="topic">MQTT Topic</label>
-            </div>
-            <div class="field-body">
-                <div class="control is-expanded">
-                    <input class="input" type="text" placeholder="MQTT/Topic" id="topic">
+        <div class="columns">
+            <div class="column">
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <label class="label has-text-left line-40p" data-key="topic">MQTT Topic</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="control is-expanded">
+                            <input class="input" type="text" placeholder="MQTT/Topic" id="topic">
+                        </div>
+                    </div>
+                    <div class="field-label">
+                        <label class="label has-text-left line-40p" data-key="retained" id="retained">Retained</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="control">
+                            <label class="checkbox line-40p">
+                                <input type="checkbox">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field-label">
+                        <label class="label has-text-left line-40p" data-key="qos">QOS</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="control">
+                            <input class="input" type="number" value="0" id="qos">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" data-key="message">Message</label>
+                    <div class="control">
+                        <textarea class="textarea" rows="15" placeholder="JSON" id="message"></textarea>
+                    </div>
+                </div>
+
+                <label class="label" data-key="repeat">Repeat every:</label>
+                <div class="field has-addons">
+                    <p class="control">
+                        <input class="input" type="number" placeholder="qtd" id="interval">
+                    </p>
+                    <p class="control">
+                        <a class="button is-static" data-key="seconds">
+                            millisecond(s).
+                        </a>
+                    </p>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" id="publish" data-key="publish">Publish</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link" id="stop" data-key="stop">Stop</button>
+                    </div>
                 </div>
             </div>
-            <div class="field-label">
-                <label class="label has-text-left" data-key="retained" id="retained">Retained</label>
-            </div>
-            <div class="field-body">
-                <div class="control">
-                    <label class="checkbox">
-                        <input type="checkbox">
-                    </label>
+            <div class="column">
+                <div class="field height-40p">
+                    <div class="control">
+                        <label class="checkbox line-40p">
+                          <input type="checkbox" id="template-enable">
+                          Use Template
+                        </label>
+                      </div>
                 </div>
-            </div>
-            <div class="field-label">
-                <label class="label has-text-left" data-key="qos">QOS</label>
-            </div>
-            <div class="field-body">
-                <div class="control">
-                    <input class="input" type="number" value="0" id="qos">
+                <div class="hidden" id="template-field">
+                    <div class="field">
+                        <label class="label" data-key="template">Template</label>
+                        <div class="control">
+                            <textarea class="textarea" rows="15" placeholder="JSON" id="template-data"></textarea>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" id="apply-template" data-key="apply-template">Apply Template</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="field">
-            <label class="label" data-key="message">Message</label>
-            <div class="control">
-                <textarea class="textarea" rows="15" placeholder="JSON" id="message"></textarea>
-            </div>
-        </div>
-
-        <label class="label" data-key="repeat">Repeat every:</label>
-        <div class="field has-addons">
-            <p class="control">
-                <input class="input" type="number" placeholder="qtd" id="interval">
-            </p>
-            <p class="control">
-                <a class="button is-static" data-key="seconds">
-                    millisecond(s).
-                </a>
-            </p>
-        </div>
-
-        <div class="field is-grouped">
-            <div class="control">
-                <button class="button is-link" id="publish" data-key="publish">Publish</button>
-            </div>
-            <div class="control">
-                <button class="button is-link" id="stop" data-key="stop">Stop</button>
-            </div>
-        </div>
     </div>
     <div class="container is-fluid hidden" id="subscriber">
         <label class="label" data-key="topic">MQTT Topic</label>
@@ -112,6 +140,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/translation.js"></script>
+    <script src="./js/template.js"></script>
 </body>
 
 </html>

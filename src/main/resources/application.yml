@@ -1,7 +1,7 @@
 logging:
   level:
     root: WARN
-    '[in.gf2.mqtt]': TRACE
+    '[in.gf2.mqtt]': DEBUG
 mqtt:
   server: tcp://localhost
   port: 1883
